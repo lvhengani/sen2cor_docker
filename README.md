@@ -37,4 +37,10 @@ To see how the docker image is build run the command:
 ./command
 
 ~~~
-When running ~~~./command~~~, also run the script ~~~source /root/sen2cor/L2A_Bashrc~~~ before starting the L2A_Process.
+
+When running ./command, before starting the L2A_Process, also run:
+~~~
+source /root/sen2cor/L2A_Bashrc~
+~~~~
+
+
