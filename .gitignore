@@ -1,0 +1,5 @@
+test_auto_input.py
+*.pyc
+*.py~
+*~
+sen2cor.yml

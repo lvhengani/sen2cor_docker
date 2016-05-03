@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker-compose -f sen2cor.yml run l2a  "$1"
+echo 'done'
