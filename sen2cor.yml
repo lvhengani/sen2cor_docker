@@ -1,0 +1,54 @@
+l2a:
+  build: . 
+  dockerfile: Dockerfile
+  
+  volumes:
+  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
+  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
+  - ./wrapper.sh:/wrapper.sh
+
+  environment:
+  - SEN2COR_HOME=/sen2cor
+  - SEN2COR_BIN=/sen2cor
+
+  working_dir: /var/sentinel2_ba_data
+  entrypoint: /wrapper.sh
+  #- L2A_Process 
+  #To run la2_process run: docker-compose -f sen2cor.yml run l2a --resolution 10 /path/to/l1C/folder/ --profile
+  #To run type ./run /path/to/sentinel/folder/
+
+test:
+  build: . 
+  dockerfile: Dockerfile
+  
+  volumes:
+  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
+  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
+
+  environment:
+  - SEN2COR_HOME=/sen2cor
+  - SEN2COR_BIN=/sen2cor
+
+  working_dir: /var/sentinel2_data
+  entrypoint:
+  - L2A_Process
+  - -h
+  #To test the docker run: docker-compose -f sen2cor.yml run test
+  #Type ./test
+
+command:
+  build: . 
+  dockerfile: Dockerfile
+  
+  volumes:
+  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
+  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
+
+  environment:
+  - SEN2COR_HOME=/sen2cor
+  - SEN2COR_BIN=/sen2cor
+
+
+  working_dir: /var/sentinel2_data
+  #To run docker command-line run: docker-compose -f sen2cor.yml run command
+  #Type ./command
