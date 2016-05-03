@@ -6,8 +6,8 @@ The original sen2cor can be downloaded from https://www.github.com.umwilm/SEN2CO
 
 
 ## Using the docker ##
-On the sen2cor.yml file change the volumes accordingly except the warper.
-The first volume is a full path to the Sentinel data repository. 
+On the sen2cor.yml file change the volumes accordingly except the wraper.
+The first volume is a full path to the Sentinel data repository.
 The second volume is a full path to a repository with scripts (not used in this case), but should there be a need, a service can be added in the docker-compose (sen2cor.yml) file.
 
 To build, run the command:
@@ -30,3 +30,11 @@ To run the processor type and run the command:
 ./run /path/to/L1c/Directory
 
 ~~~
+
+To see how the docker image is build run the command:
+
+~~~
+./command
+
+~~~
+When running ~~~./command~~~, also run the script ~~~source /root/sen2cor/L2A_Bashrc~~~ before starting the L2A_Process.
