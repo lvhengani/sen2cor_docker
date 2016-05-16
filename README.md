@@ -64,7 +64,9 @@ unzip S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T08
 ~~~
 
 This will result in a folder with the name S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE 
+
 Build the docker image by running ./build.
+
 Run sen2cor to convert the downloaded from L1C to L2A  as follows:
 
 ~~~
