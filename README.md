@@ -44,4 +44,30 @@ When running ./command, before starting the L2A_Process, also run:
 source /root/sen2cor/L2A_Bashrc
 ~~~~
 
+## Tutorial ##
 
+First clone the repo into your local machine
+~~~
+git clone https://github.com/lvhengani/sen2cor_docker
+
+~~~
+
+In the docker-compose file, edit volumes using the path where sentinel scenes are located as in your local machine.
+i.e create a directrory "~/Documents/sentinel_data". Edit the first volume to "~/Documents/sentinel_data". 
+
+Download a Sentinel 2 tile with code S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip and save it in the "~/Documents/sentinel_data" directory. 
+
+unzip the downloaded folder as follows:
+
+~~~
+unzip S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip 
+~~~
+
+This will result in a folder with the name S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE 
+Build the docker image by running ./build.
+Run sen2cor to convert the downloaded from L1C to L2A  as follows:
+
+~~~
+./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE
+
+~~~ 
