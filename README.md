@@ -2,7 +2,7 @@
 
 
 This is a docker for sen2cor, a prototype processor for processing Sentinel 2 Level 1C to Level 2A. 
-The original sen2cor can be downloaded from https://www.github.com.umwilm/SEN2COR.
+The original sen2cor can be downloaded from https://www.github.com/umwilm/SEN2COR.
 
 
 ## Using the docker ##
