@@ -1,1 +1,2 @@
-docker-compose -f sen2cor.yml run test
+#!/bin/bash
+docker-compose -f sen2cor.yml run test_l2a

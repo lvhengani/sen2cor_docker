@@ -3,52 +3,30 @@ l2a:
   dockerfile: Dockerfile
   
   volumes:
-  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
-  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
+  - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw
+  - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes
   - ./wrapper.sh:/wrapper.sh
 
   environment:
   - SEN2COR_HOME=/sen2cor
   - SEN2COR_BIN=/sen2cor
 
-  working_dir: /var/sentinel2_ba_data
+  working_dir: /var/sentinel2_data/unzipped_scenes
   entrypoint: /wrapper.sh
-  #- L2A_Process 
-  #To run la2_process run: docker-compose -f sen2cor.yml run l2a --resolution 10 /path/to/l1C/folder/ --profile
-  #To run type ./run /path/to/sentinel/folder/
 
-test:
+
+test_l2a:
   build: . 
   dockerfile: Dockerfile
   
   volumes:
-  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
-  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
+  - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw
+  - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes
+  - ./wrapper_test.sh:/wrapper_test.sh
 
   environment:
   - SEN2COR_HOME=/sen2cor
   - SEN2COR_BIN=/sen2cor
 
-  working_dir: /var/sentinel2_data
-  entrypoint:
-  - L2A_Process
-  - -h
-  #To test the docker run: docker-compose -f sen2cor.yml run test
-  #Type ./test
-
-command:
-  build: . 
-  dockerfile: Dockerfile
-  
-  volumes:
-  - ~/Documents/DHCP/Sentinel_Data:/var/sentinel2_data:rw
-  - ~/Documents/BurnedArea_Sentinel2:/var/sentinel2_ba_code:ro
-
-  environment:
-  - SEN2COR_HOME=/sen2cor
-  - SEN2COR_BIN=/sen2cor
-
-
-  working_dir: /var/sentinel2_data
-  #To run docker command-line run: docker-compose -f sen2cor.yml run command
-  #Type ./command
+  working_dir: /var/sentinel2_data/unzipped_scenes
+  entrypoint: /wrapper_test.sh
