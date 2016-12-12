@@ -2,8 +2,8 @@
 # The objective is to run sen2cor in this docker
 FROM ubuntu:14.04
 
-ENV SEN2COR_VERSION='2.2.1' \
-    ANACONDA_VERSION='4.1.1'
+ENV SEN2COR_VERSION='2.3.0' \
+    ANACONDA_VERSION='4.2.0'
 
 RUN sed 's/main$/main universe multiverse/' -i /etc/apt/sources.list
 RUN apt-get update && \
