@@ -2,6 +2,8 @@
 # The objective is to run sen2cor in this docker
 FROM ubuntu:14.04
 
+ENV DEBIAN_FRONTEND noninteractive
+
 ENV SEN2COR_VERSION='2.3.0' \
     ANACONDA_VERSION='4.2.0'
 
