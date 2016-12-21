@@ -35,6 +35,7 @@ To run the processor type and run the command:
 ## Tutorial ##
 
 First clone the repo into your local machine
+
 ~~~
 git clone https://github.com/lvhengani/sen2cor_docker
 
@@ -45,7 +46,7 @@ i.e create a directrory "~/Documents/Sentinel/2/archives" and ~/Documents/Sentin
 
 Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
 
-Build the docker image by running ./build.
+Build the docker image by running `./build`.
 
 Run sen2cor to convert the downloaded from L1C to L2A  as follows:
 
