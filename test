@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose -f sen2cor.yml run test_l2a
+docker-compose -f docker-compose.yml run --rm l2a /wrapper_test.sh

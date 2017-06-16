@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose -f sen2cor.yml build
+docker-compose -f docker-compose.yml build

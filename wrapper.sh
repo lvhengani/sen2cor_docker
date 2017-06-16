@@ -2,7 +2,7 @@
 
 source /root/sen2cor/L2A_Bashrc
 
-#set -x
+set -x
 
 # Get input variables
 zipped_dir=/var/sentinel2_data/archives/"$1"

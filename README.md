@@ -2,11 +2,20 @@
 
 
 This is a docker for sen2cor, a prototype processor for processing Sentinel 2 Level 1C to Level 2A. 
-The original sen2cor can be downloaded from https://www.github.com/umwilm/SEN2COR.
-
+The orginal sen2cor installer can be downloaded from [ESA STEP](http://step.esa.int/main/third-party-plugins-2/sen2cor/)
+When using this docker there is no need to download the original installer, simply follow the instructions on how to use.
 
 ## Using the docker ##
-On the sen2cor.yml file change the volumes accordingly except the wrapper.
+
+On the docker-compose file `sen2cor.yml` file change the volumes accordingly except the wrapper.
+
+~~~
+  - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw # archived_data_in_pc:archived_data_in_docker_image
+  - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes #unzipped_data_in_pc:unzipped_data_in_docker_image
+~~~
+
+If you decide to use the container as it is, create a directory `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+
 The first volume is a full path to the Sentinel data archives/repository (.zip).
 The second volume is a full path to a repository with unzipped scenes (.SAFE).
 
@@ -34,15 +43,15 @@ To run the processor type and run the command:
 
 ## Tutorial ##
 
-First clone the repo into your local machine
+First clone the repo into your local machine, assuming you have git isntalled in your machine.
 
 ~~~
 git clone https://github.com/lvhengani/sen2cor_docker
 
 ~~~
 
-In the docker-compose file, edit volumes using the path where sentinel scenes are located as in your local machine.
-i.e create a directrory "~/Documents/Sentinel/2/archives" and ~/Documents/Sentinel/2/unzipped_scenes. 
+To use the image without editing anything, create a directrory "~/Documents/Sentinel/2/archives" and ~/Documents/Sentinel/2/unzipped_scenes. 
+Alternavley, you can edit edit the above directories/volumes in the docker-compose file (sen2cor.yml) using the path where sentinel scenes are located in your machine.
 
 Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
 
