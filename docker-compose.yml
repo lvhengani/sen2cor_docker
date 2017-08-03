@@ -6,8 +6,7 @@ services:
     volumes:
     - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw
     - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes
-    - ./wrapper.sh:/wrapper.sh
-    - ./wrapper_test.sh:/wrapper_test.sh
+    - ./src:/src:ro
     environment:
     - SEN2COR_HOME=/sen2cor
     - SEN2COR_BIN=/sen2cor
