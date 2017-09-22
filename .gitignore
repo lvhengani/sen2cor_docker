@@ -3,3 +3,7 @@ test_auto_input.py
 *.py~
 *~
 sen2cor.yml
+dockerfile_old
+SETUP.pdf
+run_sen2cor
+/src/sen2cor_processor.py

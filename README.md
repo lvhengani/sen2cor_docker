@@ -7,7 +7,7 @@ When using this docker there is no need to download the original installer, simp
 
 ## Using the docker ##
 
-On the docker-compose file `sen2cor.yml` file change the volumes accordingly except the wrapper.
+On the docker-compose file `docker-compose.yml` file change the volumes accordingly except the wrapper.
 
 ~~~
   - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw # archived_data_in_pc:archived_data_in_docker_image
@@ -26,20 +26,26 @@ To build, run the command:
 
 ~~~
 
-To test
+To test enter the command `./run` without any commandline inputs. 
 
 ~~~
-./test
+./run
 ~~~
 
 
 To run the processor type and run the command:
 
 ~~~
-./run S2A_L1C_scene_id.zip 10
+./run S2A_L1C_scene_id.zip
 
 ~~~
 
+The defaults resolution is 10 meters, to command it to run and 20 or 60 meteres
+
+~~~
+./run S2A_L1C_scene_id.zip 20
+
+~~~
 
 ## Tutorial ##
 
@@ -51,7 +57,7 @@ git clone https://github.com/lvhengani/sen2cor_docker
 ~~~
 
 To use the image without editing anything, create a directrory "~/Documents/Sentinel/2/archives" and ~/Documents/Sentinel/2/unzipped_scenes. 
-Alternavley, you can edit edit the above directories/volumes in the docker-compose file (sen2cor.yml) using the path where sentinel scenes are located in your machine.
+Alternavley, you can edit edit the above directories/volumes in the docker-compose file (docker-compose.yml) using the path where sentinel scenes are located in your machine.
 
 Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
 

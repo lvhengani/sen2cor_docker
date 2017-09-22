@@ -8,6 +8,7 @@ services:
     - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes
     - ./src:/src:ro
     environment:
+    - USERID=1000
     - SEN2COR_HOME=/sen2cor
     - SEN2COR_BIN=/sen2cor
     working_dir: /var/sentinel2_data/unzipped_scenes
