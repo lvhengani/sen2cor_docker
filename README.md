@@ -2,28 +2,30 @@
 
 
 This is a docker for sen2cor, a prototype processor for processing Sentinel 2 Level 1C to Level 2A. 
-The orginal sen2cor installer can be downloaded from [ESA STEP](http://step.esa.int/main/third-party-plugins-2/sen2cor/)
-When using this docker there is no need to download the original installer, simply follow the instructions on how to use.
+The orginal sen2cor installer can be downloaded from [ESA STEP](http://step.esa.int/main/third-party-plugins-2/sen2cor/).
+
+When using this docker there is no need to download the original installer, simply follow the instructions on how to use below.
 
 ## Using the docker ##
 
-First clone the repository into your local machine, assuming you have git isntalled into your machine.
+First clone the repository into your local machine, assuming you have git installed into your machine.
 
 ~~~
 git clone https://github.com/lvhengani/sen2cor_docker
 ~~~
 
-On the docker-compose file `docker-compose.yml` file change the volumes accordingly except the wrapper.
+To use the container as it is, create directories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+These paths are set in the `.env` file. 
 
 ~~~
-  - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw # archived_data_in_pc:archived_data_in_docker_image
-  - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes #unzipped_data_in_pc:unzipped_data_in_docker_image
+archives=~/Documents/Sentinel/2/archives
+unzipped_scenes=~/Documents/Sentinel/2/unzipped_scenes
 ~~~
 
-If you decide to use the container as it is, create a directory `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+The first volume `~/Documents/Sentinel/2/archives` is a full path to the Sentinel data archives repository (.zip).
+The second volume `~/Documents/Sentinel/2/unzipped_scenes` is a full path to a repository with unzipped scenes (.SAFE).
 
-The first volume is a full path to the Sentinel data archives/repository (.zip).
-The second volume is a full path to a repository with unzipped scenes (.SAFE).
+If you decide to store the data elsewhere edit the paths on the provided `.env` file but make sure that the paths exists. 
 
 To build, run the command:
 
@@ -49,8 +51,8 @@ To run the processor type and run the command:
 
 After cloning, change directory into the cloned folder.
 
-To use the image without editing anything on the `docker-compose.yml` file, create a directrories "~/Documents/Sentinel/2/archives" and ~/Documents/Sentinel/2/unzipped_scenes. 
-Alternavley, you can edit edit the above directories/volumes in the `docker-compose.yml` file using the path where sentinel scenes are located in your machine.
+To use the image without editing anything on the `.env` file, create a directrories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+Alternatively, you can edit edit the above directories/volumes in the `.env` file using the path where sentinel scenes are located in your machine as already mentioned above.
 
 Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
 

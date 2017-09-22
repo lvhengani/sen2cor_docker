@@ -4,8 +4,8 @@ services:
     build: 
       context: ./dockerfile
     volumes:
-    - ~/Documents/Sentinel/2/archives:/var/sentinel2_data/archives:rw
-    - ~/Documents/Sentinel/2/unzipped_scenes:/var/sentinel2_data/unzipped_scenes
+    - $archives:/var/sentinel2_data/archives:rw
+    - $unzipped_scenes:/var/sentinel2_data/unzipped_scenes
     - ./src:/src:ro
     environment:
     - USERID=1000
