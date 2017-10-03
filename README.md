@@ -51,7 +51,7 @@ To run the processor type and run the command:
 
 After cloning, change directory into the cloned folder.
 
-To use the image without editing anything on the `.env` file, create a directrories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+To use the image without editing anything on the `.env` file, create directrories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
 Alternatively, you can edit edit the above directories/volumes in the `.env` file using the path where sentinel scenes are located in your machine as already mentioned above.
 
 Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
@@ -70,6 +70,6 @@ or
 ./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip 20
 ~~~ 
 
-The results will be in the "~/Documents/Sentinel/2/unzipped_scenes" folder with the name S2A_USER_PRD_MSIL2A_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE.
+The results will be in the `~/Documents/Sentinel/2/unzipped_scenes` folder with the name S2A_USER_PRD_MSIL2A_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE.
 
 For more information on how to use sen2cor, visit the site [ESA STEP](http://step.esa.int/main/third-party-plugins-2/sen2cor/).
