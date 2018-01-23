@@ -1,11 +1,12 @@
 version: '2'
 services:
   l2a:
-    build: 
+    build:
       context: ./dockerfile
     volumes:
     - $archives:/var/sentinel2_data/archives:rw
     - $unzipped_scenes:/var/sentinel2_data/unzipped_scenes
+    - $dem:/root/sen2cor/dem
     - ./src:/src:ro
     environment:
     - USERID=1000
