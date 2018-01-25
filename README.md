@@ -20,10 +20,12 @@ These paths are set in the `.env` file.
 ~~~
 archives=~/Documents/Sentinel/2/archives
 unzipped_scenes=~/Documents/Sentinel/2/unzipped_scenes
+dem=~/Documents/Sentinel/2/dem
 ~~~
 
 The first volume `~/Documents/Sentinel/2/archives` is a full path to the Sentinel data archives repository (.zip).
 The second volume `~/Documents/Sentinel/2/unzipped_scenes` is a full path to a repository with unzipped scenes (.SAFE).
+The third volume `~/Documents/Sentinel/2/dem` is a full path to a repository where the downloaded DEMs are stored.
 
 If you decide to store the data elsewhere edit the paths on the provided `.env` file but make sure that the paths exists. 
 
@@ -33,18 +35,29 @@ To build, run the command:
 ./build
 ~~~
 
-To test enter the command `./run` without any commandline inputs. 
+To test enter the command `./run` without any commandline inputs. This command prints the 
+supported command line parameters:
+
+
 
 ~~~
 ./run
+Wrapper script for Sen2Cor
+Usage: ./run [-h] [-r {10,20,60}] [-d] [-u] SCENE-ID
+
+  -h --help             Prints this help and exits
+  -r --resolution       Target resolution, can be 10, 20 or 60m (default 10)
+  -d --with-dem         Uses a DEM (default off)
+  -u --delete-unzipped  Delete the unzipped file after running Sen2Cor (default off)
+  SCENE-ID              The Sentinel-2 scene id to process
+/src/wrapper.sh: A scene id is required.
 ~~~
 
 
 To run the processor type and run the command:
 
 ~~~
-./run S2A_L1C_scene_id.zip 10
-
+./run -r 10 -d -u S2A_L1C_scene_id
 ~~~
 
 ## Tutorial ##
@@ -61,13 +74,13 @@ Build the docker image by running `./build`. This can take time.
 Run sen2cor to convert the downloaded from L1C to L2A  as follows:
 
 ~~~
-./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip 10
+./run -r 10 -d -u S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip
 ~~~
 
 or 
 
 ~~~
-./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip 20
+./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523 20
 ~~~ 
 
 The results will be in the `~/Documents/Sentinel/2/unzipped_scenes` folder with the name S2A_USER_PRD_MSIL2A_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE.
