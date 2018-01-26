@@ -34,7 +34,7 @@ RUN sed 's/main$/main universe multiverse/' -i /etc/apt/sources.list && \
     pip install psycopg2 &&\
     wget "http://step.esa.int/thirdparties/sen2cor/${SEN2COR_VERSION}/${SEN2COR}" && \
     bash ${SEN2COR} && \
-    cp -p /Sen2Cor-2.4.0-Linux64/lib/python2.7/site-packages/sen2cor/cfg/L2A_GIPP.xml /root/sen2cor/cfg/L2A_GIPP_without_dem.xml && \
+    cp -p /Sen2Cor-${SEN2COR_VERSION}-Linux64/lib/python2.7/site-packages/sen2cor/cfg/L2A_GIPP.xml /root/sen2cor/cfg/L2A_GIPP_without_dem.xml && \
     sed 's:>NONE<:>dem<:' /root/sen2cor/cfg/L2A_GIPP_without_dem.xml >/root/sen2cor/cfg/L2A_GIPP_with_dem.xml && \
     curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64" && \
     chmod +x /usr/local/bin/gosu

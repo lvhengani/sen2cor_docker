@@ -14,8 +14,7 @@ First clone the repository into your local machine, assuming you have git instal
 git clone https://github.com/lvhengani/sen2cor_docker
 ~~~
 
-To use the container as it is, create directories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
-These paths are set in the `.env` file. 
+To use the container as it is, create directories `~/Documents/Sentinel/2/archives`, `~/Documents/Sentinel/2/unzipped_scenes` and `~/Documents/Sentinel/2/dem`. These paths are set in the `.env` file. 
 
 ~~~
 archives=~/Documents/Sentinel/2/archives
@@ -64,25 +63,23 @@ To run the processor type and run the command:
 
 After cloning, change directory into the cloned folder.
 
-To use the image without editing anything on the `.env` file, create directrories `~/Documents/Sentinel/2/archives` and `~/Documents/Sentinel/2/unzipped_scenes`. 
+To use the image without editing anything on the `.env` file, create directrories `~/Documents/Sentinel/2/archives`, `~/Documents/Sentinel/2/unzipped_scenes` and `~/Documents/Sentinel/2/dem`. 
 Alternatively, you can edit edit the above directories/volumes in the `.env` file using the path where sentinel scenes are located in your machine as already mentioned above.
 
-Download a Sentinel 2 tile for example "S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
+Download a Sentinel 2 tile for example "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
 
 Build the docker image by running `./build`. This can take time.
 
 Run sen2cor to convert the downloaded from L1C to L2A  as follows:
 
 ~~~
-./run -r 10 -d -u S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.zip
+./run -r 10 -d -u S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.zip
 ~~~
 
-or 
-
-~~~
-./run S2A_OPER_PRD_MSIL1C_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523 20
-~~~ 
-
-The results will be in the `~/Documents/Sentinel/2/unzipped_scenes` folder with the name S2A_USER_PRD_MSIL2A_PDMC_20160504T214803_R092_V20160504T080523_20160504T080523.SAFE.
+The results will be in the `~/Documents/Sentinel/2/unzipped_scenes` folder with the name "S2A_MSIL2A_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE".
 
 For more information on how to use sen2cor, visit the site [ESA STEP](http://step.esa.int/main/third-party-plugins-2/sen2cor/).
+
+# Acknowlegments
+
+Special thanks to @hjaekel who edited the `Dockefile` and `wrapper.sh` files by adding to commandline options for using a DEM and for deleting the unzipped file.    
