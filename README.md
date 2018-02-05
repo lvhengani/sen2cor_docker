@@ -82,4 +82,4 @@ For more information on how to use sen2cor, visit the site [ESA STEP](http://ste
 
 # Acknowlegments
 
-Special thanks to @hjaekel who edited the `Dockefile` and `wrapper.sh` files by adding commandline options for using a DEM and for deleting the unzipped file. In addition edited the `Dockerfile` to avoid GDAl from ubuntigis and added a line to remove the sen2cor binary after installation.      
+Special thanks to @hjaekel who edited the `Dockefile` and `wrapper.sh` files by adding commandline options for using a DEM and for deleting the unzipped file. In addition edited the `Dockerfile` to avoid GDAL from ubuntigis and added a line to remove the sen2cor binary after installation.      
