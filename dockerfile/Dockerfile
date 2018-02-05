@@ -5,7 +5,7 @@ FROM ubuntu:xenial
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG SEN2COR_VERSION='2.4.0'
-ARG GOSU_VERSION='1.9'
+ARG GOSU_VERSION='1.10'
 ARG SEN2COR="Sen2Cor-${SEN2COR_VERSION}-Linux64.run"
 RUN apt-get update && apt-get install -y \
         unzip \
