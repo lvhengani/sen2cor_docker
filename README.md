@@ -66,9 +66,9 @@ After cloning, change directory into the cloned folder.
 To use the image without editing anything on the `.env` file, create directrories `~/Documents/Sentinel/2/archives`, `~/Documents/Sentinel/2/unzipped_scenes` and `~/Documents/Sentinel/2/dem`. 
 Alternatively, you can edit edit the above directories/volumes in the `.env` file using the path where sentinel scenes are located in your machine as already mentioned above.
 
-Download a Sentinel 2 tile for example "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.zip" and save it in the "~/Documents/Sentinel/2/archives" directory. 
+Download a Sentinel 2 tile for example "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.zip" and save it in the "~/Documents/Sentinel/2/archives" directory.
 
-Build the docker image by running `./build`. This can take time.
+Build the docker image by running `./build`. This may take time.
 
 Run sen2cor to convert the downloaded from L1C to L2A  as follows:
 
@@ -82,4 +82,4 @@ For more information on how to use sen2cor, visit the site [ESA STEP](http://ste
 
 # Acknowlegments
 
-Special thanks to @hjaekel who edited the `Dockefile` and `wrapper.sh` files by adding commandline options for using a DEM and for deleting the unzipped file. In addition edited the `Dockerfile` to avoid GDAL from ubuntigis and added a line to remove the sen2cor binary after installation.      
+Special thanks to @hjaekel who edited the `Dockefile` and `wrapper.sh` files by adding commandline options for using a DEM and for deleting the unzipped file. In addition edited the `Dockerfile` to avoid GDAL from ubuntigis and added a line to remove the sen2cor binary after installation.

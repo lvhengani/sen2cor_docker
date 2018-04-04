@@ -2,7 +2,7 @@
 
 #default values
 resolution=10
-with_dem=/root/sen2cor/cfg/L2A_GIPP_without_dem.xml
+with_dem=/root/sen2cor/2.5/cfg/L2A_GIPP_without_dem.xml
 delete_unzipped=n
 
 function usage()
@@ -51,7 +51,7 @@ while true; do
             shift 2
             ;;
         -d|--with-dem)
-            with_dem=/root/sen2cor/cfg/L2A_GIPP_with_dem.xml
+            with_dem=/root/sen2cor/2.5/cfg/L2A_GIPP_with_dem.xml
             shift
             ;;
         -u|--delete-unzipped)
@@ -88,7 +88,7 @@ fi
 unzip -q $zipped_dir -d /var/sentinel2_data/unzipped_scenes
 
 # Run sen2cor
-/Sen2Cor-2.4.0-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem
+/Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem
 
 # Delete the unzipped file after running sen2cor
 if [ "$delete_unzipped" == "y" ]; then
